@@ -1,0 +1,342 @@
+app_group:
+  - read:
+      path: /apps/qos.eda.nokia.com
+      method: GET
+
+intent_targets:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys/{name}/_targets
+      method: GET
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss/{name}/_targets
+      method: GET
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys/{name}/_targets
+      method: GET
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments/{name}/_targets
+      method: GET
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments/{name}/_targets
+      method: GET
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues/{name}/_targets
+      method: GET
+
+k8_s_topology_request:
+  - create:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys/{name}/_topology
+      method: POST
+  - create:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss/{name}/_topology
+      method: POST
+  - create:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys/{name}/_topology
+      method: POST
+  - create:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments/{name}/_topology
+      method: POST
+  - create:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments/{name}/_topology
+      method: POST
+  - create:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues/{name}/_topology
+      method: POST
+
+resource_history:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues/{name}/_revs
+      method: GET
+
+resource_list:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2
+      method: GET
+
+status:
+  - delete:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys/{name}
+      method: DELETE
+  - delete:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss/{name}
+      method: DELETE
+  - delete:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys/{name}
+      method: DELETE
+  - delete:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments/{name}
+      method: DELETE
+  - delete:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments/{name}
+      method: DELETE
+  - delete:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues/{name}
+      method: DELETE
+
+ui_result:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/_ui/{pathname}
+      method: GET
+
+com.nokia.eda.qos.v2.egress_policy:
+  - create:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys
+      method: POST
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys/{name}
+      method: GET
+  - update:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys/{name}
+      method: PUT
+  - update:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys/{name}
+      method: PATCH
+
+com.nokia.eda.qos.v2.egress_policy_list:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/egresspolicys
+      method: GET
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys
+      method: GET
+  - delete:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys
+      method: DELETE
+
+com.nokia.eda.qos.v2.egress_policy_deleted_resources:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys/_deleted
+      method: GET
+
+com.nokia.eda.qos.v2.forwarding_class:
+  - create:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss
+      method: POST
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss/{name}
+      method: GET
+  - update:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss/{name}
+      method: PUT
+  - update:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss/{name}
+      method: PATCH
+
+com.nokia.eda.qos.v2.forwarding_class_list:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/forwardingclasss
+      method: GET
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss
+      method: GET
+  - delete:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss
+      method: DELETE
+
+com.nokia.eda.qos.v2.forwarding_class_deleted_resources:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss/_deleted
+      method: GET
+
+com.nokia.eda.qos.v2.ingress_policy:
+  - create:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys
+      method: POST
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys/{name}
+      method: GET
+  - update:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys/{name}
+      method: PUT
+  - update:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys/{name}
+      method: PATCH
+
+com.nokia.eda.qos.v2.ingress_policy_list:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/ingresspolicys
+      method: GET
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys
+      method: GET
+  - delete:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys
+      method: DELETE
+
+com.nokia.eda.qos.v2.ingress_policy_deleted_resources:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys/_deleted
+      method: GET
+
+com.nokia.eda.qos.v2.policy_attachment:
+  - create:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments
+      method: POST
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments/{name}
+      method: GET
+  - update:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments/{name}
+      method: PUT
+  - update:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments/{name}
+      method: PATCH
+
+com.nokia.eda.qos.v2.policy_attachment_list:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments
+      method: GET
+  - delete:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments
+      method: DELETE
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/policyattachments
+      method: GET
+
+com.nokia.eda.qos.v2.policy_attachment_deleted_resources:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments/_deleted
+      method: GET
+
+com.nokia.eda.qos.v2.policy_deployment:
+  - create:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments
+      method: POST
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments/{name}
+      method: GET
+  - update:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments/{name}
+      method: PUT
+  - update:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments/{name}
+      method: PATCH
+
+com.nokia.eda.qos.v2.policy_deployment_list:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments
+      method: GET
+  - delete:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments
+      method: DELETE
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/policydeployments
+      method: GET
+
+com.nokia.eda.qos.v2.policy_deployment_deleted_resources:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments/_deleted
+      method: GET
+
+com.nokia.eda.qos.v2.queue:
+  - create:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues
+      method: POST
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues/{name}
+      method: GET
+  - update:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues/{name}
+      method: PUT
+  - update:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues/{name}
+      method: PATCH
+
+com.nokia.eda.qos.v2.queue_list:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues
+      method: GET
+  - delete:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues
+      method: DELETE
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/queues
+      method: GET
+
+com.nokia.eda.qos.v2.queue_deleted_resources:
+  - read:
+      path: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues/_deleted
+      method: GET
+
+totalPaths: 45
+totalSchemas: 87
+usedSchemas: 25
+unusedSchemas: 62
+unusedSchemaList:
+  - AppGroupVersion
+  - ErrorResponse
+  - IntentTarget
+  - K8SPatchOp
+  - OverlayState
+  - Patch
+  - Resource
+  - ResourceHistoryEntry
+  - ResourceTopology
+  - StatusDetails
+  - TopoAttrMetadata
+  - TopoAttribute
+  - TopoBoolExpression
+  - TopoBoolLiteral
+  - TopoElemMetadata
+  - TopoEndpointBoolExpression
+  - TopoField
+  - TopoFixedBoolExpression
+  - TopoLabelSelector
+  - TopoLiteralStatusOrBadge
+  - TopoLiteralValue
+  - TopoLogicalExpression
+  - TopoNodeGrouping
+  - TopoOverlayEndpoint
+  - TopoOverlayEndpointState
+  - TopoOverlayLink
+  - TopoOverlayLinkGroup
+  - TopoOverlayLinkGroupEndpoint
+  - TopoOverlayLinkState
+  - TopoOverlayNode
+  - TopoOverlayNodeOrGroup
+  - TopoOverlayNodeState
+  - TopoOverlayValue
+  - TopoSchema
+  - TopoStateFilter
+  - TopoValue
+  - TopoValueExpression
+  - Topology
+  - com.nokia.eda.qos.v2.EgressPolicy_DeletedResourceEntry
+  - com.nokia.eda.qos.v2.EgressPolicy_alarms
+  - com.nokia.eda.qos.v2.EgressPolicy_deviations
+  - com.nokia.eda.qos.v2.EgressPolicy_metadata
+  - com.nokia.eda.qos.v2.ForwardingClass_DeletedResourceEntry
+  - com.nokia.eda.qos.v2.ForwardingClass_alarms
+  - com.nokia.eda.qos.v2.ForwardingClass_deviations
+  - com.nokia.eda.qos.v2.ForwardingClass_metadata
+  - com.nokia.eda.qos.v2.IngressPolicy_DeletedResourceEntry
+  - com.nokia.eda.qos.v2.IngressPolicy_alarms
+  - com.nokia.eda.qos.v2.IngressPolicy_deviations
+  - com.nokia.eda.qos.v2.IngressPolicy_metadata
+  - com.nokia.eda.qos.v2.PolicyAttachment_DeletedResourceEntry
+  - com.nokia.eda.qos.v2.PolicyAttachment_alarms
+  - com.nokia.eda.qos.v2.PolicyAttachment_deviations
+  - com.nokia.eda.qos.v2.PolicyAttachment_metadata
+  - com.nokia.eda.qos.v2.PolicyDeployment_DeletedResourceEntry
+  - com.nokia.eda.qos.v2.PolicyDeployment_alarms
+  - com.nokia.eda.qos.v2.PolicyDeployment_deviations
+  - com.nokia.eda.qos.v2.PolicyDeployment_metadata
+  - com.nokia.eda.qos.v2.Queue_DeletedResourceEntry
+  - com.nokia.eda.qos.v2.Queue_alarms
+  - com.nokia.eda.qos.v2.Queue_deviations
+  - com.nokia.eda.qos.v2.Queue_metadata
