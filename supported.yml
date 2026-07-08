@@ -1,0 +1,85 @@
+datasources:
+  - model_name: app_group
+    oas_endpoint: /apps/qos.eda.nokia.com
+    oas_schema: AppGroup
+  - model_name: resource_list
+    oas_endpoint: /apps/qos.eda.nokia.com/v2
+    oas_schema: ResourceList
+  - model_name: egress_policy_list
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys
+    oas_schema: com.nokia.eda.qos.v2.EgressPolicyList
+  - model_name: egress_policy
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys/{name}
+    oas_schema: com.nokia.eda.qos.v2.EgressPolicy
+  - model_name: forwarding_class_list
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss
+    oas_schema: com.nokia.eda.qos.v2.ForwardingClassList
+  - model_name: forwarding_class
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss/{name}
+    oas_schema: com.nokia.eda.qos.v2.ForwardingClass
+  - model_name: ingress_policy_list
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys
+    oas_schema: com.nokia.eda.qos.v2.IngressPolicyList
+  - model_name: ingress_policy
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys/{name}
+    oas_schema: com.nokia.eda.qos.v2.IngressPolicy
+  - model_name: policy_attachment_list
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments
+    oas_schema: com.nokia.eda.qos.v2.PolicyAttachmentList
+  - model_name: policy_attachment
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments/{name}
+    oas_schema: com.nokia.eda.qos.v2.PolicyAttachment
+  - model_name: policy_deployment_list
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments
+    oas_schema: com.nokia.eda.qos.v2.PolicyDeploymentList
+  - model_name: policy_deployment
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments/{name}
+    oas_schema: com.nokia.eda.qos.v2.PolicyDeployment
+  - model_name: queue_list
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues
+    oas_schema: com.nokia.eda.qos.v2.QueueList
+  - model_name: queue
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues/{name}
+    oas_schema: com.nokia.eda.qos.v2.Queue
+
+resources:
+  - model_name: egress_policy
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys
+    oas_schema: com.nokia.eda.qos.v2.EgressPolicy
+  - model_name: forwarding_class
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss
+    oas_schema: com.nokia.eda.qos.v2.ForwardingClass
+  - model_name: ingress_policy
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys
+    oas_schema: com.nokia.eda.qos.v2.IngressPolicy
+  - model_name: policy_attachment
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments
+    oas_schema: com.nokia.eda.qos.v2.PolicyAttachment
+  - model_name: policy_deployment
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments
+    oas_schema: com.nokia.eda.qos.v2.PolicyDeployment
+  - model_name: queue
+    oas_endpoint: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues
+    oas_schema: com.nokia.eda.qos.v2.Queue
+
+qualified:
+  datasources:
+    - oas_schema: IntentTargets
+      get: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys/{name}/_targets
+    - oas_schema: ResourceHistory
+      get: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys/{name}/_revs
+    - oas_schema: UIResult
+      get: /apps/qos.eda.nokia.com/v2/_ui/{pathname}
+    - oas_schema: com.nokia.eda.qos.v2.EgressPolicy_DeletedResources
+      get: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/egresspolicys/_deleted
+    - oas_schema: com.nokia.eda.qos.v2.ForwardingClass_DeletedResources
+      get: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/forwardingclasss/_deleted
+    - oas_schema: com.nokia.eda.qos.v2.IngressPolicy_DeletedResources
+      get: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/ingresspolicys/_deleted
+    - oas_schema: com.nokia.eda.qos.v2.PolicyAttachment_DeletedResources
+      get: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policyattachments/_deleted
+    - oas_schema: com.nokia.eda.qos.v2.PolicyDeployment_DeletedResources
+      get: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/policydeployments/_deleted
+    - oas_schema: com.nokia.eda.qos.v2.Queue_DeletedResources
+      get: /apps/qos.eda.nokia.com/v2/namespaces/{namespace}/queues/_deleted
+  resources:
