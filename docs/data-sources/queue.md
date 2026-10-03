@@ -23,7 +23,6 @@ description: |-
 ### Optional
 
 - `hash` (String) resource content will be returned as it was at the time of this git hash
-- `spec` (Attributes) The Queue resource is used to define the properties of a queue, which can then be referenced by other resources. (see [below for nested schema](#nestedatt--spec))
 
 ### Read-Only
 
@@ -32,17 +31,8 @@ description: |-
 - `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--metadata))
+- `spec` (Attributes) The Queue resource is used to define the properties of a queue, which can then be referenced by other resources. (see [below for nested schema](#nestedatt--spec))
 - `status` (Attributes) QueueStatus defines the observed state of Queue (see [below for nested schema](#nestedatt--status))
-
-<a id="nestedatt--spec"></a>
-### Nested Schema for `spec`
-
-Optional:
-
-- `queue_id` (Number) The ID of the queue on which to apply the properties.  This is mandatory for usage of queus on SROS and is ignored on other operating systems.
-- `queue_type` (String) QueueType specifies whether this is a normal queue or a PFC queue
-- `traffic_type` (String) The traffic type of the queue, either unicast or multicast.
-
 
 <a id="nestedatt--alarms"></a>
 ### Nested Schema for `alarms`
@@ -72,6 +62,16 @@ Read-Only:
 - `labels` (Map of String)
 - `name` (String)
 - `namespace` (String)
+
+
+<a id="nestedatt--spec"></a>
+### Nested Schema for `spec`
+
+Read-Only:
+
+- `queue_id` (Number) The ID of the queue on which to apply the properties.  This is mandatory for usage of queus on SROS and is ignored on other operating systems.
+- `queue_type` (String) QueueType specifies whether this is a normal queue or a PFC queue
+- `traffic_type` (String) The traffic type of the queue, either unicast or multicast.
 
 
 <a id="nestedatt--status"></a>

@@ -104,40 +104,40 @@ func PolicyDeploymentListDataSourceSchema(ctx context.Context) schema.Schema {
 						"spec": schema.SingleNestedAttribute{
 							Attributes: map[string]schema.Attribute{
 								"egress_policy": schema.StringAttribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "Specifies an EgressPolicy to deploy on the specified Node.",
 									MarkdownDescription: "Specifies an EgressPolicy to deploy on the specified Node.",
 								},
 								"ingress_policy": schema.StringAttribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "Specifies the IngressPolicy to deploy on the specified Node.",
 									MarkdownDescription: "Specifies the IngressPolicy to deploy on the specified Node.",
 								},
 								"interface_selectors": schema.ListAttribute{
 									ElementType:         types.StringType,
-									Optional:            true,
+									Computed:            true,
 									Description:         "Specifies a label selector to filter the interfaces on which to deploy the policies.",
 									MarkdownDescription: "Specifies a label selector to filter the interfaces on which to deploy the policies.",
 								},
 								"interface_type": schema.StringAttribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "Used for platforms that differentiate between access/service interfaces and network interface.  These platforms may require different classifiers depending on whether they are applied on access/service interfaces or network interfaces.  Specifies whether the classifier should be configured as a service Egress classifier or network Egress classifier",
 									MarkdownDescription: "Used for platforms that differentiate between access/service interfaces and network interface.  These platforms may require different classifiers depending on whether they are applied on access/service interfaces or network interfaces.  Specifies whether the classifier should be configured as a service Egress classifier or network Egress classifier",
 								},
 								"interfaces": schema.ListAttribute{
 									ElementType:         types.StringType,
-									Optional:            true,
+									Computed:            true,
 									Description:         "Specifies a list of Interfaces on which to deploy the policies.",
 									MarkdownDescription: "Specifies a list of Interfaces on which to deploy the policies.",
 								},
 								"node": schema.StringAttribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "Specifies a Node to deploy the policies on.",
 									MarkdownDescription: "Specifies a Node to deploy the policies on.",
 								},
 								"node_selectors": schema.ListAttribute{
 									ElementType:         types.StringType,
-									Optional:            true,
+									Computed:            true,
 									Description:         "Specifies a label selector to filter the nodes on which to deploy the policies.",
 									MarkdownDescription: "Specifies a label selector to filter the nodes on which to deploy the policies.",
 								},
@@ -147,7 +147,7 @@ func PolicyDeploymentListDataSourceSchema(ctx context.Context) schema.Schema {
 									AttrTypes: SpecValue{}.AttributeTypes(ctx),
 								},
 							},
-							Optional:            true,
+							Computed:            true,
 							Description:         "PolicyDeploymentSpec defines the desired state of PolicyDeployment",
 							MarkdownDescription: "PolicyDeploymentSpec defines the desired state of PolicyDeployment",
 						},

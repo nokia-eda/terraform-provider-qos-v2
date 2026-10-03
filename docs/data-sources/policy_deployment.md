@@ -23,7 +23,6 @@ description: |-
 ### Optional
 
 - `hash` (String) resource content will be returned as it was at the time of this git hash
-- `spec` (Attributes) PolicyDeploymentSpec defines the desired state of PolicyDeployment (see [below for nested schema](#nestedatt--spec))
 
 ### Read-Only
 
@@ -32,21 +31,8 @@ description: |-
 - `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--metadata))
+- `spec` (Attributes) PolicyDeploymentSpec defines the desired state of PolicyDeployment (see [below for nested schema](#nestedatt--spec))
 - `status` (Attributes) PolicyDeploymentStatus defines the observed state of PolicyDeployment (see [below for nested schema](#nestedatt--status))
-
-<a id="nestedatt--spec"></a>
-### Nested Schema for `spec`
-
-Optional:
-
-- `egress_policy` (String) Specifies an EgressPolicy to deploy on the specified Node.
-- `ingress_policy` (String) Specifies the IngressPolicy to deploy on the specified Node.
-- `interface_selectors` (List of String) Specifies a label selector to filter the interfaces on which to deploy the policies.
-- `interface_type` (String) Used for platforms that differentiate between access/service interfaces and network interface.  These platforms may require different classifiers depending on whether they are applied on access/service interfaces or network interfaces.  Specifies whether the classifier should be configured as a service Egress classifier or network Egress classifier
-- `interfaces` (List of String) Specifies a list of Interfaces on which to deploy the policies.
-- `node` (String) Specifies a Node to deploy the policies on.
-- `node_selectors` (List of String) Specifies a label selector to filter the nodes on which to deploy the policies.
-
 
 <a id="nestedatt--alarms"></a>
 ### Nested Schema for `alarms`
@@ -76,6 +62,20 @@ Read-Only:
 - `labels` (Map of String)
 - `name` (String)
 - `namespace` (String)
+
+
+<a id="nestedatt--spec"></a>
+### Nested Schema for `spec`
+
+Read-Only:
+
+- `egress_policy` (String) Specifies an EgressPolicy to deploy on the specified Node.
+- `ingress_policy` (String) Specifies the IngressPolicy to deploy on the specified Node.
+- `interface_selectors` (List of String) Specifies a label selector to filter the interfaces on which to deploy the policies.
+- `interface_type` (String) Used for platforms that differentiate between access/service interfaces and network interface.  These platforms may require different classifiers depending on whether they are applied on access/service interfaces or network interfaces.  Specifies whether the classifier should be configured as a service Egress classifier or network Egress classifier
+- `interfaces` (List of String) Specifies a list of Interfaces on which to deploy the policies.
+- `node` (String) Specifies a Node to deploy the policies on.
+- `node_selectors` (List of String) Specifies a label selector to filter the nodes on which to deploy the policies.
 
 
 <a id="nestedatt--status"></a>

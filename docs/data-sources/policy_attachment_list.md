@@ -35,10 +35,6 @@ description: |-
 <a id="nestedatt--items"></a>
 ### Nested Schema for `items`
 
-Optional:
-
-- `spec` (Attributes) PolicyAttachmentSpec defines the desired state of PolicyAttachment (see [below for nested schema](#nestedatt--items--spec))
-
 Read-Only:
 
 - `alarms` (Attributes) (see [below for nested schema](#nestedatt--items--alarms))
@@ -46,27 +42,8 @@ Read-Only:
 - `deviations` (Attributes) (see [below for nested schema](#nestedatt--items--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--items--metadata))
+- `spec` (Attributes) PolicyAttachmentSpec defines the desired state of PolicyAttachment (see [below for nested schema](#nestedatt--items--spec))
 - `status` (Attributes) PolicyAttachmentStatus defines the observed state of PolicyAttachment (see [below for nested schema](#nestedatt--items--status))
-
-<a id="nestedatt--items--spec"></a>
-### Nested Schema for `items.spec`
-
-Optional:
-
-- `attachments` (Attributes List) Specifies a list of Interfaces and subinterfaces on which to deploy the policies. (see [below for nested schema](#nestedatt--items--spec--attachments))
-- `egress_policy` (String) Specifies an EgressPolicy to deploy on the specified Node.
-- `ingress_policy` (String) Specifies the IngressPolicy to deploy on the specified Node.
-
-<a id="nestedatt--items--spec--attachments"></a>
-### Nested Schema for `items.spec.attachments`
-
-Optional:
-
-- `interface` (String) Specifies the Interface on which to deploy the policies.
-- `interface_type` (String) Used for platforms that differentiate between access/service interfaces and network interface.  These platforms may require different classifiers depending on whether they are applied on access/service interfaces or network interfaces.  Specifies whether the classifier should be configured as a service Egress classifier or network Egress classifier
-- `sub_interface_index` (Number) Specifies the SubInterfaceIndex on which to deploy the policies.
-
-
 
 <a id="nestedatt--items--alarms"></a>
 ### Nested Schema for `items.alarms`
@@ -96,6 +73,26 @@ Read-Only:
 - `labels` (Map of String)
 - `name` (String)
 - `namespace` (String)
+
+
+<a id="nestedatt--items--spec"></a>
+### Nested Schema for `items.spec`
+
+Read-Only:
+
+- `attachments` (Attributes List) Specifies a list of Interfaces and subinterfaces on which to deploy the policies. (see [below for nested schema](#nestedatt--items--spec--attachments))
+- `egress_policy` (String) Specifies an EgressPolicy to deploy on the specified Node.
+- `ingress_policy` (String) Specifies the IngressPolicy to deploy on the specified Node.
+
+<a id="nestedatt--items--spec--attachments"></a>
+### Nested Schema for `items.spec.attachments`
+
+Read-Only:
+
+- `interface` (String) Specifies the Interface on which to deploy the policies.
+- `interface_type` (String) Used for platforms that differentiate between access/service interfaces and network interface.  These platforms may require different classifiers depending on whether they are applied on access/service interfaces or network interfaces.  Specifies whether the classifier should be configured as a service Egress classifier or network Egress classifier
+- `sub_interface_index` (Number) Specifies the SubInterfaceIndex on which to deploy the policies.
+
 
 
 <a id="nestedatt--items--status"></a>

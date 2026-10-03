@@ -102,17 +102,17 @@ func QueueDataSourceSchema(ctx context.Context) schema.Schema {
 			"spec": schema.SingleNestedAttribute{
 				Attributes: map[string]schema.Attribute{
 					"queue_id": schema.Int64Attribute{
-						Optional:            true,
+						Computed:            true,
 						Description:         "The ID of the queue on which to apply the properties.  This is mandatory for usage of queus on SROS and is ignored on other operating systems.",
 						MarkdownDescription: "The ID of the queue on which to apply the properties.  This is mandatory for usage of queus on SROS and is ignored on other operating systems.",
 					},
 					"queue_type": schema.StringAttribute{
-						Optional:            true,
+						Computed:            true,
 						Description:         "QueueType specifies whether this is a normal queue or a PFC queue",
 						MarkdownDescription: "QueueType specifies whether this is a normal queue or a PFC queue",
 					},
 					"traffic_type": schema.StringAttribute{
-						Optional:            true,
+						Computed:            true,
 						Description:         "The traffic type of the queue, either unicast or multicast.",
 						MarkdownDescription: "The traffic type of the queue, either unicast or multicast.",
 					},
@@ -122,7 +122,7 @@ func QueueDataSourceSchema(ctx context.Context) schema.Schema {
 						AttrTypes: SpecValue{}.AttributeTypes(ctx),
 					},
 				},
-				Optional:            true,
+				Computed:            true,
 				Description:         "The Queue resource is used to define the properties of a queue, which can then be referenced by other resources.",
 				MarkdownDescription: "The Queue resource is used to define the properties of a queue, which can then be referenced by other resources.",
 			},

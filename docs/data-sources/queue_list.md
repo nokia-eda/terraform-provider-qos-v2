@@ -35,10 +35,6 @@ description: |-
 <a id="nestedatt--items"></a>
 ### Nested Schema for `items`
 
-Optional:
-
-- `spec` (Attributes) The Queue resource is used to define the properties of a queue, which can then be referenced by other resources. (see [below for nested schema](#nestedatt--items--spec))
-
 Read-Only:
 
 - `alarms` (Attributes) (see [below for nested schema](#nestedatt--items--alarms))
@@ -46,17 +42,8 @@ Read-Only:
 - `deviations` (Attributes) (see [below for nested schema](#nestedatt--items--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--items--metadata))
+- `spec` (Attributes) The Queue resource is used to define the properties of a queue, which can then be referenced by other resources. (see [below for nested schema](#nestedatt--items--spec))
 - `status` (Attributes) QueueStatus defines the observed state of Queue (see [below for nested schema](#nestedatt--items--status))
-
-<a id="nestedatt--items--spec"></a>
-### Nested Schema for `items.spec`
-
-Optional:
-
-- `queue_id` (Number) The ID of the queue on which to apply the properties.  This is mandatory for usage of queus on SROS and is ignored on other operating systems.
-- `queue_type` (String) QueueType specifies whether this is a normal queue or a PFC queue
-- `traffic_type` (String) The traffic type of the queue, either unicast or multicast.
-
 
 <a id="nestedatt--items--alarms"></a>
 ### Nested Schema for `items.alarms`
@@ -86,6 +73,16 @@ Read-Only:
 - `labels` (Map of String)
 - `name` (String)
 - `namespace` (String)
+
+
+<a id="nestedatt--items--spec"></a>
+### Nested Schema for `items.spec`
+
+Read-Only:
+
+- `queue_id` (Number) The ID of the queue on which to apply the properties.  This is mandatory for usage of queus on SROS and is ignored on other operating systems.
+- `queue_type` (String) QueueType specifies whether this is a normal queue or a PFC queue
+- `traffic_type` (String) The traffic type of the queue, either unicast or multicast.
 
 
 <a id="nestedatt--items--status"></a>

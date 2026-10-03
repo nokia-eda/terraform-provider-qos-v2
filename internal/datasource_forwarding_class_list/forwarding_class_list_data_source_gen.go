@@ -108,7 +108,7 @@ func ForwardingClassListDataSourceSchema(ctx context.Context) schema.Schema {
 									AttrTypes: SpecValue{}.AttributeTypes(ctx),
 								},
 							},
-							Optional:            true,
+							Computed:            true,
 							Description:         "The ForwaringClass is used as a placeholder for to allow multiple other resources to reference the same forwarding class.",
 							MarkdownDescription: "The ForwaringClass is used as a placeholder for to allow multiple other resources to reference the same forwarding class.",
 						},

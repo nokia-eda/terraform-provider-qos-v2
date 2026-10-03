@@ -109,17 +109,17 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 										"dot1p_policy_entry": schema.SingleNestedAttribute{
 											Attributes: map[string]schema.Attribute{
 												"direct_to_pfc_queue": schema.BoolAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "In addition to creating a Dot1p PCP value to Forwarding Class mapping, this will map the PCP values directly to the PFC queue specified in the Forwarding Class to Queue mapping.",
 													MarkdownDescription: "In addition to creating a Dot1p PCP value to Forwarding Class mapping, this will map the PCP values directly to the PFC queue specified in the Forwarding Class to Queue mapping.",
 												},
 												"drop_probability_level": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Assign matching packets to the specified drop probability level.",
 													MarkdownDescription: "Assign matching packets to the specified drop probability level.",
 												},
 												"forwarding_class": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Reference to a ForwardingClass resource to which the value is mapped.",
 													MarkdownDescription: "Reference to a ForwardingClass resource to which the value is mapped.",
 												},
@@ -127,12 +127,12 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 													NestedObject: schema.NestedAttributeObject{
 														Attributes: map[string]schema.Attribute{
 															"range_end": schema.Int64Attribute{
-																Optional:            true,
+																Computed:            true,
 																Description:         "Optional end of PCP range (inclusive) which would start from the Value to the RangeEnd.",
 																MarkdownDescription: "Optional end of PCP range (inclusive) which would start from the Value to the RangeEnd.",
 															},
 															"value": schema.Int64Attribute{
-																Optional:            true,
+																Computed:            true,
 																Description:         "Single PCP value or start of range.",
 																MarkdownDescription: "Single PCP value or start of range.",
 															},
@@ -143,7 +143,7 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 															},
 														},
 													},
-													Optional:            true,
+													Computed:            true,
 													Description:         "List of PCP values or ranges used to match packets to classify into Forwarding Classes.",
 													MarkdownDescription: "List of PCP values or ranges used to match packets to classify into Forwarding Classes.",
 												},
@@ -153,14 +153,14 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 													AttrTypes: Dot1pPolicyEntryValue{}.AttributeTypes(ctx),
 												},
 											},
-											Optional:            true,
+											Computed:            true,
 											Description:         "A Dot1p policy entry - only a single Dot1p entry is allowed per classifier resource.",
 											MarkdownDescription: "A Dot1p policy entry - only a single Dot1p entry is allowed per classifier resource.",
 										},
 										"dscp_policy_entry": schema.SingleNestedAttribute{
 											Attributes: map[string]schema.Attribute{
 												"drop_probability_level": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Assign matching packets to the specified drop probability level.",
 													MarkdownDescription: "Assign matching packets to the specified drop probability level.",
 												},
@@ -168,12 +168,12 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 													NestedObject: schema.NestedAttributeObject{
 														Attributes: map[string]schema.Attribute{
 															"range_end": schema.Int64Attribute{
-																Optional:            true,
+																Computed:            true,
 																Description:         "Optional end of DSCP range (inclusive) which would start from the Value to the RangeEnd.",
 																MarkdownDescription: "Optional end of DSCP range (inclusive) which would start from the Value to the RangeEnd.",
 															},
 															"value": schema.Int64Attribute{
-																Optional:            true,
+																Computed:            true,
 																Description:         "Single DSCP value or start of range.",
 																MarkdownDescription: "Single DSCP value or start of range.",
 															},
@@ -184,12 +184,12 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 															},
 														},
 													},
-													Optional:            true,
+													Computed:            true,
 													Description:         "List of DSCP values or ranges used to match packets to classify into Forwarding Classes.",
 													MarkdownDescription: "List of DSCP values or ranges used to match packets to classify into Forwarding Classes.",
 												},
 												"forwarding_class": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Reference to a ForwardingClass resource to which the value is mapped.",
 													MarkdownDescription: "Reference to a ForwardingClass resource to which the value is mapped.",
 												},
@@ -199,7 +199,7 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 													AttrTypes: DscpPolicyEntryValue{}.AttributeTypes(ctx),
 												},
 											},
-											Optional:            true,
+											Computed:            true,
 											Description:         "A DSCP policy entry - only a single DSCP entry is allowed per classifier resource.",
 											MarkdownDescription: "A DSCP policy entry - only a single DSCP entry is allowed per classifier resource.",
 										},
@@ -208,17 +208,17 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 												"action": schema.SingleNestedAttribute{
 													Attributes: map[string]schema.Attribute{
 														"drop_probability_level": schema.StringAttribute{
-															Optional:            true,
+															Computed:            true,
 															Description:         "Assign matching packets to the specified drop probability level.",
 															MarkdownDescription: "Assign matching packets to the specified drop probability level.",
 														},
 														"dscp_rewrite_value": schema.Int64Attribute{
-															Optional:            true,
+															Computed:            true,
 															Description:         "Rewrite actions associated with packets that match the classifier entry.",
 															MarkdownDescription: "Rewrite actions associated with packets that match the classifier entry.",
 														},
 														"forwarding_class": schema.StringAttribute{
-															Optional:            true,
+															Computed:            true,
 															Description:         "Reference to a ForwardingClass resource to which the value is mapped.",
 															MarkdownDescription: "Reference to a ForwardingClass resource to which the value is mapped.",
 														},
@@ -228,104 +228,104 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 															AttrTypes: ActionValue{}.AttributeTypes(ctx),
 														},
 													},
-													Optional:            true,
+													Computed:            true,
 													Description:         "An action to take on the matched packets.",
 													MarkdownDescription: "An action to take on the matched packets.",
 												},
 												"destination_port_name": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Destination port to match by name.",
 													MarkdownDescription: "Destination port to match by name.",
 												},
 												"destination_port_number": schema.Int64Attribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Destination port to match by numerical value.",
 													MarkdownDescription: "Destination port to match by numerical value.",
 												},
 												"destination_port_operator": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Operator to use when matching destinationPort, either Equals, GreaterOrEquals, or LessOrEquals.",
 													MarkdownDescription: "Operator to use when matching destinationPort, either Equals, GreaterOrEquals, or LessOrEquals.",
 												},
 												"destination_port_range": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Range of destination ports to match, in the format n-m, e.g. 100-200,  The start and end of the range must be port numbers.",
 													MarkdownDescription: "Range of destination ports to match, in the format n-m, e.g. 100-200,  The start and end of the range must be port numbers.",
 												},
 												"destination_prefix": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Destination prefix to match.",
 													MarkdownDescription: "Destination prefix to match.",
 												},
 												"dscp_values": schema.ListAttribute{
 													ElementType:         types.Int64Type,
-													Optional:            true,
+													Computed:            true,
 													Description:         "Match DSCP values.",
 													MarkdownDescription: "Match DSCP values.",
 												},
 												"first_fragment": schema.BoolAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Match the first fragment only.",
 													MarkdownDescription: "Match the first fragment only.",
 												},
 												"fragment": schema.BoolAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Match any fragment.",
 													MarkdownDescription: "Match any fragment.",
 												},
 												"icmp_codes": schema.ListAttribute{
 													ElementType:         types.Int64Type,
-													Optional:            true,
+													Computed:            true,
 													Description:         "Match a specific ICMP code, as a number between 0-255, e.g. 0.",
 													MarkdownDescription: "Match a specific ICMP code, as a number between 0-255, e.g. 0.",
 												},
 												"icmp_type_name": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Match a specific ICMP type by name, e.g. dest-unreachable.",
 													MarkdownDescription: "Match a specific ICMP type by name, e.g. dest-unreachable.",
 												},
 												"icmp_type_number": schema.Int64Attribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Match a specific ICMP type by number.",
 													MarkdownDescription: "Match a specific ICMP type by number.",
 												},
 												"protocol_name": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Match a specific IP protocol name (specified in the type field of the IP header).",
 													MarkdownDescription: "Match a specific IP protocol name (specified in the type field of the IP header).",
 												},
 												"protocol_number": schema.Int64Attribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Match a specific IP protocol number (specified in the type field of the IP header).",
 													MarkdownDescription: "Match a specific IP protocol number (specified in the type field of the IP header).",
 												},
 												"source_port_name": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Source port to match by name.",
 													MarkdownDescription: "Source port to match by name.",
 												},
 												"source_port_number": schema.Int64Attribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Source port to match by numerical value.",
 													MarkdownDescription: "Source port to match by numerical value.",
 												},
 												"source_port_operator": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Operator to use when matching sourcePort, either Equals, GreaterOrEquals, or LessOrEquals.",
 													MarkdownDescription: "Operator to use when matching sourcePort, either Equals, GreaterOrEquals, or LessOrEquals.",
 												},
 												"source_port_range": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Range of source ports to match, in the format n-m, e.g. 100-200.  The start and end of the range must be port numbers.",
 													MarkdownDescription: "Range of source ports to match, in the format n-m, e.g. 100-200.  The start and end of the range must be port numbers.",
 												},
 												"source_prefix": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Source prefix to match.",
 													MarkdownDescription: "Source prefix to match.",
 												},
 												"tcp_flags": schema.StringAttribute{
-													Optional:            true,
+													Computed:            true,
 													Description:         "Match TCP flags, usable with !, &, | and the flags RST, SYN, and ACK.",
 													MarkdownDescription: "Match TCP flags, usable with !, &, | and the flags RST, SYN, and ACK.",
 												},
@@ -335,12 +335,12 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 													AttrTypes: IpEntryValue{}.AttributeTypes(ctx),
 												},
 											},
-											Optional:            true,
+											Computed:            true,
 											Description:         "An IPv4 or IPv6 multifield classifier entry.",
 											MarkdownDescription: "An IPv4 or IPv6 multifield classifier entry.",
 										},
 										"type": schema.StringAttribute{
-											Optional:            true,
+											Computed:            true,
 											Description:         "Type of the entry which can be IPV4, IPV6, Dot1pPolicy, DSCPPolicy, or Auto.",
 											MarkdownDescription: "Type of the entry which can be IPV4, IPV6, Dot1pPolicy, DSCPPolicy, or Auto.",
 										},
@@ -351,7 +351,7 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 										},
 									},
 								},
-								Optional:            true,
+								Computed:            true,
 								Description:         "Specifies the list of filter entries, in order.\nA classifier containing multiple entry types may result in multiple classifiers being created on the target node.\nIPV4 and IPV6 entries will create multifield classifier policies.",
 								MarkdownDescription: "Specifies the list of filter entries, in order.\nA classifier containing multiple entry types may result in multiple classifiers being created on the target node.\nIPV4 and IPV6 entries will create multifield classifier policies.",
 							},
@@ -361,7 +361,7 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 								AttrTypes: ClassifierValue{}.AttributeTypes(ctx),
 							},
 						},
-						Optional:            true,
+						Computed:            true,
 						Description:         "Classifier manages the configuration of traffic classification policies in a network. It includes various entry types like IPv4, IPv6, Dot1p, and DSCP policies. Each entry specifies how traffic should be classified and what actions should be taken on the matched packets.",
 						MarkdownDescription: "Classifier manages the configuration of traffic classification policies in a network. It includes various entry types like IPv4, IPv6, Dot1p, and DSCP policies. Each entry specifies how traffic should be classified and what actions should be taken on the matched packets.",
 					},
@@ -370,12 +370,12 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 							Attributes: map[string]schema.Attribute{
 								"forwarding_classes": schema.ListAttribute{
 									ElementType:         types.StringType,
-									Optional:            true,
+									Computed:            true,
 									Description:         "The forwarding classes to which the mapping applies, these are references to ForwardingClass resources.",
 									MarkdownDescription: "The forwarding classes to which the mapping applies, these are references to ForwardingClass resources.",
 								},
 								"queue": schema.StringAttribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "The queue to which the forwarding classes are mapped, this is a reference to a Queue resource.",
 									MarkdownDescription: "The queue to which the forwarding classes are mapped, this is a reference to a Queue resource.",
 								},
@@ -386,7 +386,7 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 								},
 							},
 						},
-						Optional:            true,
+						Computed:            true,
 						Description:         "Forwarding class to queue mapping policy.",
 						MarkdownDescription: "Forwarding class to queue mapping policy.",
 					},
@@ -394,24 +394,24 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 						NestedObject: schema.NestedAttributeObject{
 							Attributes: map[string]schema.Attribute{
 								"committed_burst_size_bytes": schema.Int64Attribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "Maximum CIR bucket depth in bytes.",
 									MarkdownDescription: "Maximum CIR bucket depth in bytes.",
 								},
 								"committed_rate_kbps": schema.Int64Attribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "The committed information rate (CIR) of the policer, defined in kilobits (1024 bits) per second.",
 									MarkdownDescription: "The committed information rate (CIR) of the policer, defined in kilobits (1024 bits) per second.",
 								},
 								"committed_rate_percent": schema.Int64Attribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "The committed information rate (CIR) of the policer, defined as a percentage of the Interface speed on which it is applied.",
 									MarkdownDescription: "The committed information rate (CIR) of the policer, defined as a percentage of the Interface speed on which it is applied.",
 								},
 								"exceed_action": schema.SingleNestedAttribute{
 									Attributes: map[string]schema.Attribute{
 										"drop_probability_level": schema.StringAttribute{
-											Optional:            true,
+											Computed:            true,
 											Description:         "The drop probability level to apply.",
 											MarkdownDescription: "The drop probability level to apply.",
 										},
@@ -421,7 +421,7 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 											AttrTypes: ExceedActionValue{}.AttributeTypes(ctx),
 										},
 									},
-									Optional:            true,
+									Computed:            true,
 									Description:         "Applies a drop-probability to packets that the policer has determined are exceeding (yellow).",
 									MarkdownDescription: "Applies a drop-probability to packets that the policer has determined are exceeding (yellow).",
 								},
@@ -430,13 +430,13 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 										Attributes: map[string]schema.Attribute{
 											"forwarding_classes": schema.ListAttribute{
 												ElementType:         types.StringType,
-												Optional:            true,
+												Computed:            true,
 												Description:         "The forwarding class of the packets on which to apply the Policer.  To match all traffic set this to 'ALL'.",
 												MarkdownDescription: "The forwarding class of the packets on which to apply the Policer.  To match all traffic set this to 'ALL'.",
 											},
 											"forwarding_types": schema.ListAttribute{
 												ElementType:         types.StringType,
-												Optional:            true,
+												Computed:            true,
 												Description:         "The traffic type to which the Policer applies.",
 												MarkdownDescription: "The traffic type to which the Policer applies.",
 											},
@@ -447,34 +447,34 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 											},
 										},
 									},
-									Optional:            true,
+									Computed:            true,
 									Description:         "The list of forwarding classes with traffic to be sent to the policer.  Unless specified all traffic is matched for this policer.",
 									MarkdownDescription: "The list of forwarding classes with traffic to be sent to the policer.  Unless specified all traffic is matched for this policer.",
 								},
 								"maximum_burst_size_bytes": schema.Int64Attribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "Maximum PIR bucket depth in bytes.",
 									MarkdownDescription: "Maximum PIR bucket depth in bytes.",
 								},
 								"min_interface_speed": schema.Int64Attribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "Minimum interface speed (kbps) to calculate PeakRate and CommittedRate for devices where configuration is not supported in percentage.",
 									MarkdownDescription: "Minimum interface speed (kbps) to calculate PeakRate and CommittedRate for devices where configuration is not supported in percentage.",
 								},
 								"peak_rate_kbps": schema.Int64Attribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "The peak information rate (PIR) of the policer, defined in kilobits (1024 bits) per second.",
 									MarkdownDescription: "The peak information rate (PIR) of the policer, defined in kilobits (1024 bits) per second.",
 								},
 								"peak_rate_percent": schema.Int64Attribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "The peak information rate (PIR) of the policer, defined as a percentage of the Interface speed on which it is applied.",
 									MarkdownDescription: "The peak information rate (PIR) of the policer, defined as a percentage of the Interface speed on which it is applied.",
 								},
 								"violate_action": schema.SingleNestedAttribute{
 									Attributes: map[string]schema.Attribute{
 										"drop_probability_level": schema.StringAttribute{
-											Optional:            true,
+											Computed:            true,
 											Description:         "The drop probability level to apply.",
 											MarkdownDescription: "The drop probability level to apply.",
 										},
@@ -484,7 +484,7 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 											AttrTypes: ViolateActionValue{}.AttributeTypes(ctx),
 										},
 									},
-									Optional:            true,
+									Computed:            true,
 									Description:         "Applies a drop-probability to packets that the policer has determined are exceeding (red).",
 									MarkdownDescription: "Applies a drop-probability to packets that the policer has determined are exceeding (red).",
 								},
@@ -495,7 +495,7 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 								},
 							},
 						},
-						Optional:            true,
+						Computed:            true,
 						Description:         "Ordered list of policers where the first policer is evaluated first before proceeding to the next.",
 						MarkdownDescription: "Ordered list of policers where the first policer is evaluated first before proceeding to the next.",
 					},
@@ -503,7 +503,7 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 						NestedObject: schema.NestedAttributeObject{
 							Attributes: map[string]schema.Attribute{
 								"pfc_reserved_buffer_percent": schema.Int64Attribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "Percentage of the linecard buffer reserved for accomodating incoming traffic while upstream node reacts to generated PFC-pause frames. Note: this percentage must be common across all EgressPolicies and QueuesSets used on the same linecard.",
 									MarkdownDescription: "Percentage of the linecard buffer reserved for accomodating incoming traffic while upstream node reacts to generated PFC-pause frames. Note: this percentage must be common across all EgressPolicies and QueuesSets used on the same linecard.",
 								},
@@ -511,37 +511,37 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 									NestedObject: schema.NestedAttributeObject{
 										Attributes: map[string]schema.Attribute{
 											"committed_burst_size_bytes": schema.Int64Attribute{
-												Optional:            true,
+												Computed:            true,
 												Description:         "Committed Burst Size in bytes.",
 												MarkdownDescription: "Committed Burst Size in bytes.",
 											},
 											"maximum_burst_size_bytes": schema.Int64Attribute{
-												Optional:            true,
+												Computed:            true,
 												Description:         "Maximum amount of shared buffer memory available to the queue in bytes.",
 												MarkdownDescription: "Maximum amount of shared buffer memory available to the queue in bytes.",
 											},
 											"pfc_off_threshold_percent": schema.Int64Attribute{
-												Optional:            true,
+												Computed:            true,
 												Description:         "PFC off threshold.",
 												MarkdownDescription: "PFC off threshold.",
 											},
 											"pfc_on_threshold_percent": schema.Int64Attribute{
-												Optional:            true,
+												Computed:            true,
 												Description:         "PFC on threshold.",
 												MarkdownDescription: "PFC on threshold.",
 											},
 											"pfc_pause_frame_priority": schema.Int64Attribute{
-												Optional:            true,
+												Computed:            true,
 												Description:         "PFC priorities indicated in generated pfc-pause-frame if congestion occurs in a given pfc-queue.",
 												MarkdownDescription: "PFC priorities indicated in generated pfc-pause-frame if congestion occurs in a given pfc-queue.",
 											},
 											"pfc_reserved_share_buffer_percent": schema.Int64Attribute{
-												Optional:            true,
+												Computed:            true,
 												Description:         "Maximum level the pfc-queue can take from pfc-reserved buffer configured per given forwarding-complex.",
 												MarkdownDescription: "Maximum level the pfc-queue can take from pfc-reserved buffer configured per given forwarding-complex.",
 											},
 											"queue": schema.StringAttribute{
-												Optional:            true,
+												Computed:            true,
 												Description:         "Reference to a Queue resource.",
 												MarkdownDescription: "Reference to a Queue resource.",
 											},
@@ -552,7 +552,7 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 											},
 										},
 									},
-									Optional:            true,
+									Computed:            true,
 									Description:         "List of queues.",
 									MarkdownDescription: "List of queues.",
 								},
@@ -563,7 +563,7 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 								},
 							},
 						},
-						Optional:            true,
+						Computed:            true,
 						Description:         "Queue management policy for egress queues.",
 						MarkdownDescription: "Queue management policy for egress queues.",
 					},
@@ -573,7 +573,7 @@ func IngressPolicyDataSourceSchema(ctx context.Context) schema.Schema {
 						AttrTypes: SpecValue{}.AttributeTypes(ctx),
 					},
 				},
-				Optional:            true,
+				Computed:            true,
 				Description:         "IngressPolicySpec defines the desired state of IngressPolicy",
 				MarkdownDescription: "IngressPolicySpec defines the desired state of IngressPolicy",
 			},

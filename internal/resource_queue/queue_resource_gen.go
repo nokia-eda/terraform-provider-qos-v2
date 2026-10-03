@@ -126,6 +126,7 @@ func QueueResourceSchema(ctx context.Context) schema.Schema {
 				Attributes: map[string]schema.Attribute{
 					"queue_id": schema.Int64Attribute{
 						Optional:            true,
+						Computed:            true,
 						Description:         "The ID of the queue on which to apply the properties.  This is mandatory for usage of queus on SROS and is ignored on other operating systems.",
 						MarkdownDescription: "The ID of the queue on which to apply the properties.  This is mandatory for usage of queus on SROS and is ignored on other operating systems.",
 					},

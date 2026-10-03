@@ -105,17 +105,17 @@ func PolicyAttachmentDataSourceSchema(ctx context.Context) schema.Schema {
 						NestedObject: schema.NestedAttributeObject{
 							Attributes: map[string]schema.Attribute{
 								"interface": schema.StringAttribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "Specifies the Interface on which to deploy the policies.",
 									MarkdownDescription: "Specifies the Interface on which to deploy the policies.",
 								},
 								"interface_type": schema.StringAttribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "Used for platforms that differentiate between access/service interfaces and network interface.  These platforms may require different classifiers depending on whether they are applied on access/service interfaces or network interfaces.  Specifies whether the classifier should be configured as a service Egress classifier or network Egress classifier",
 									MarkdownDescription: "Used for platforms that differentiate between access/service interfaces and network interface.  These platforms may require different classifiers depending on whether they are applied on access/service interfaces or network interfaces.  Specifies whether the classifier should be configured as a service Egress classifier or network Egress classifier",
 								},
 								"sub_interface_index": schema.Int64Attribute{
-									Optional:            true,
+									Computed:            true,
 									Description:         "Specifies the SubInterfaceIndex on which to deploy the policies.",
 									MarkdownDescription: "Specifies the SubInterfaceIndex on which to deploy the policies.",
 								},
@@ -126,17 +126,17 @@ func PolicyAttachmentDataSourceSchema(ctx context.Context) schema.Schema {
 								},
 							},
 						},
-						Optional:            true,
+						Computed:            true,
 						Description:         "Specifies a list of Interfaces and subinterfaces on which to deploy the policies.",
 						MarkdownDescription: "Specifies a list of Interfaces and subinterfaces on which to deploy the policies.",
 					},
 					"egress_policy": schema.StringAttribute{
-						Optional:            true,
+						Computed:            true,
 						Description:         "Specifies an EgressPolicy to deploy on the specified Node.",
 						MarkdownDescription: "Specifies an EgressPolicy to deploy on the specified Node.",
 					},
 					"ingress_policy": schema.StringAttribute{
-						Optional:            true,
+						Computed:            true,
 						Description:         "Specifies the IngressPolicy to deploy on the specified Node.",
 						MarkdownDescription: "Specifies the IngressPolicy to deploy on the specified Node.",
 					},
@@ -146,7 +146,7 @@ func PolicyAttachmentDataSourceSchema(ctx context.Context) schema.Schema {
 						AttrTypes: SpecValue{}.AttributeTypes(ctx),
 					},
 				},
-				Optional:            true,
+				Computed:            true,
 				Description:         "PolicyAttachmentSpec defines the desired state of PolicyAttachment",
 				MarkdownDescription: "PolicyAttachmentSpec defines the desired state of PolicyAttachment",
 			},

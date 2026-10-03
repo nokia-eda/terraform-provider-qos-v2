@@ -138,6 +138,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 												Attributes: map[string]schema.Attribute{
 													"level": schema.StringAttribute{
 														Optional:            true,
+														Computed:            true,
 														Description:         "A drop probability level within the forwarding class for which a different remarking is desired",
 														MarkdownDescription: "A drop probability level within the forwarding class for which a different remarking is desired",
 														Validators: []validator.String{
@@ -150,6 +151,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 													},
 													"pcp_value": schema.Int64Attribute{
 														Optional:            true,
+														Computed:            true,
 														Description:         "The PCP value to be used for packets associated with the forwarding class and the specific drop probability. This overrides the general PCP value.",
 														MarkdownDescription: "The PCP value to be used for packets associated with the forwarding class and the specific drop probability. This overrides the general PCP value.",
 														Validators: []validator.Int64{
@@ -164,6 +166,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 												},
 											},
 											Optional:            true,
+											Computed:            true,
 											Description:         "Drop probability specific overrides within the forwarding class",
 											MarkdownDescription: "Drop probability specific overrides within the forwarding class",
 										},
@@ -175,6 +178,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 										},
 										"pcp_value": schema.Int64Attribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "The PCP value to be used for all packets associated with the forwarding class, except those with a drop-probability-specific or profile-specific override",
 											MarkdownDescription: "The PCP value to be used for all packets associated with the forwarding class, except those with a drop-probability-specific or profile-specific override",
 											Validators: []validator.Int64{
@@ -199,6 +203,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 							},
 						},
 						Optional:            true,
+						Computed:            true,
 						Description:         "Dot1pRewritePolicy enables the configuration of rewrite policies for Dot1p values. It includes mappings of forwarding classes to Dot1p values, with options for drop probability-specific overrides within each forwarding class.",
 						MarkdownDescription: "Dot1pRewritePolicy enables the configuration of rewrite policies for Dot1p values. It includes mappings of forwarding classes to Dot1p values, with options for drop probability-specific overrides within each forwarding class.",
 					},
@@ -212,6 +217,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 												Attributes: map[string]schema.Attribute{
 													"dscp": schema.Int64Attribute{
 														Optional:            true,
+														Computed:            true,
 														Description:         "The DSCP value to be used for packets associated with the forwarding class and the specific drop probability. This overrides the general DSCP value.",
 														MarkdownDescription: "The DSCP value to be used for packets associated with the forwarding class and the specific drop probability. This overrides the general DSCP value.",
 														Validators: []validator.Int64{
@@ -220,6 +226,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 													},
 													"level": schema.StringAttribute{
 														Optional:            true,
+														Computed:            true,
 														Description:         "A drop probability level within the forwarding class for which a different remarking is desired.",
 														MarkdownDescription: "A drop probability level within the forwarding class for which a different remarking is desired.",
 														Validators: []validator.String{
@@ -238,11 +245,13 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 												},
 											},
 											Optional:            true,
+											Computed:            true,
 											Description:         "A drop probability within the forwarding class for which a different remarking is desired.",
 											MarkdownDescription: "A drop probability within the forwarding class for which a different remarking is desired.",
 										},
 										"dscp": schema.Int64Attribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "The DSCP value to be used for all packets associated with the forwarding class, except those with a drop-probability-specific or profile-specific override.",
 											MarkdownDescription: "The DSCP value to be used for all packets associated with the forwarding class, except those with a drop-probability-specific or profile-specific override.",
 											Validators: []validator.Int64{
@@ -273,6 +282,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 							},
 						},
 						Optional:            true,
+						Computed:            true,
 						Description:         "DSCPRewritePolicy enables the configuration of rewrite policies for Differentiated Services Code Point (DSCP) values. It includes mappings of forwarding classes to DSCP values, with options for drop probability-specific overrides within each forwarding class.  If a DSCPRewritePolicy is not specified, the DSCP value of the packet is unchanged. If a DSCP policy is specific and ECN is enabled on any of the queues, the DSCP policy will be applied to all ECN capable packets.",
 						MarkdownDescription: "DSCPRewritePolicy enables the configuration of rewrite policies for Differentiated Services Code Point (DSCP) values. It includes mappings of forwarding classes to DSCP values, with options for drop probability-specific overrides within each forwarding class.  If a DSCPRewritePolicy is not specified, the DSCP value of the packet is unchanged. If a DSCP policy is specific and ECN is enabled on any of the queues, the DSCP policy will be applied to all ECN capable packets.",
 					},
@@ -295,6 +305,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 								},
 								"queue_group": schema.StringAttribute{
 									Optional:            true,
+									Computed:            true,
 									Description:         "The queue-group name for queue to forwarding class mapping.",
 									MarkdownDescription: "The queue-group name for queue to forwarding class mapping.",
 								},
@@ -306,6 +317,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 							},
 						},
 						Optional:            true,
+						Computed:            true,
 						Description:         "Forwarding class to queue mapping policy.",
 						MarkdownDescription: "Forwarding class to queue mapping policy.",
 					},
@@ -333,6 +345,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 							},
 						},
 						Optional:            true,
+						Computed:            true,
 						Description:         "Parameters related to avoid a deadlock related to pfc on outgoing interface.",
 						MarkdownDescription: "Parameters related to avoid a deadlock related to pfc on outgoing interface.",
 					},
@@ -344,6 +357,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 										Attributes: map[string]schema.Attribute{
 											"committed_burst_size_bytes": schema.Int64Attribute{
 												Optional:            true,
+												Computed:            true,
 												Description:         "Committed Burst Size in bytes.",
 												MarkdownDescription: "Committed Burst Size in bytes.",
 											},
@@ -352,11 +366,12 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 												Description:         "Maximum amount of shared buffer memory available to the queue in bytes.",
 												MarkdownDescription: "Maximum amount of shared buffer memory available to the queue in bytes.",
 												Validators: []validator.Int64{
-													int64validator.Between(0, 4294967295),
+													int64validator.AtLeast(0),
 												},
 											},
 											"pfc_pause_frame_priority": schema.Int64Attribute{
 												Optional:            true,
+												Computed:            true,
 												Description:         "The pfc-priority received in pfc-pause-frame.",
 												MarkdownDescription: "The pfc-priority received in pfc-pause-frame.",
 											},
@@ -367,6 +382,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 											},
 											"scheduler_peak_rate_percent": schema.Int64Attribute{
 												Optional:            true,
+												Computed:            true,
 												Description:         "The peak rate percent used by the scheduler for the queue.",
 												MarkdownDescription: "The peak rate percent used by the scheduler for the queue.",
 												Validators: []validator.Int64{
@@ -375,6 +391,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 											},
 											"scheduler_priority_level": schema.Int64Attribute{
 												Optional:            true,
+												Computed:            true,
 												Description:         "The priority level at this Port Scheduler Policy.",
 												MarkdownDescription: "The priority level at this Port Scheduler Policy.",
 												Validators: []validator.Int64{
@@ -383,6 +400,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 											},
 											"scheduler_weight": schema.Int64Attribute{
 												Optional:            true,
+												Computed:            true,
 												Description:         "The weight factor used for the WRR scheduler. If any of the queues have a configured weight the set of queues will use a WRR scheduler and thus all queues must have a weight configured.  If no weights are set then the queues are scheduled in strict priority from lowest to higher queue ID.",
 												MarkdownDescription: "The weight factor used for the WRR scheduler. If any of the queues have a configured weight the set of queues will use a WRR scheduler and thus all queues must have a weight configured.  If no weights are set then the queues are scheduled in strict priority from lowest to higher queue ID.",
 												Validators: []validator.Int64{
@@ -437,26 +455,31 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 											},
 											"max_drop_probability_percent": schema.Int64Attribute{
 												Optional:            true,
+												Computed:            true,
 												Description:         "If the queue depth is between min and max threshold then this the probability with which packets are dropped or marked.",
 												MarkdownDescription: "If the queue depth is between min and max threshold then this the probability with which packets are dropped or marked.",
 											},
 											"max_threshold_bytes": schema.Int64Attribute{
 												Optional:            true,
+												Computed:            true,
 												Description:         "The maximum threshold parameter for a RED-managed queue in bytes. When the average queue length exceeds the max value, all packets are dropped (or marked if ECN is enabled). Mutually exclusive with min-threshold-percent and max-threshold-percent.",
 												MarkdownDescription: "The maximum threshold parameter for a RED-managed queue in bytes. When the average queue length exceeds the max value, all packets are dropped (or marked if ECN is enabled). Mutually exclusive with min-threshold-percent and max-threshold-percent.",
 											},
 											"max_threshold_percent": schema.Int64Attribute{
 												Optional:            true,
+												Computed:            true,
 												Description:         "The maximum threshold parameter for a RED-managed queue in percent. When the average queue length exceeds the max value, all packets are dropped (or marked if ECN is enabled). Mutually exclusive with min-threshold and max-threshold.",
 												MarkdownDescription: "The maximum threshold parameter for a RED-managed queue in percent. When the average queue length exceeds the max value, all packets are dropped (or marked if ECN is enabled). Mutually exclusive with min-threshold and max-threshold.",
 											},
 											"min_threshold_bytes": schema.Int64Attribute{
 												Optional:            true,
+												Computed:            true,
 												Description:         "The minimum threshold parameter for a RED-managed queue in bytes. When the average queue length is less than min, all packets are admitted to the queue. Mututally exclusive with min-threshold-percent and max-threshold-percent.",
 												MarkdownDescription: "The minimum threshold parameter for a RED-managed queue in bytes. When the average queue length is less than min, all packets are admitted to the queue. Mututally exclusive with min-threshold-percent and max-threshold-percent.",
 											},
 											"min_threshold_percent": schema.Int64Attribute{
 												Optional:            true,
+												Computed:            true,
 												Description:         "The minimum threshold parameter for a RED-managed queue in percent. When the average queue length is less than min, all packets are admitted to the queue. Mutually exclusive with min-threshold and max-threshold.",
 												MarkdownDescription: "The minimum threshold parameter for a RED-managed queue in percent. When the average queue length is less than min, all packets are admitted to the queue. Mutually exclusive with min-threshold and max-threshold.",
 											},
@@ -482,6 +505,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 										},
 									},
 									Optional:            true,
+									Computed:            true,
 									Description:         "Slope policy to apply to the set of queues.",
 									MarkdownDescription: "Slope policy to apply to the set of queues.",
 								},
@@ -493,6 +517,7 @@ func EgressPolicyResourceSchema(ctx context.Context) schema.Schema {
 							},
 						},
 						Optional:            true,
+						Computed:            true,
 						Description:         "Queue management policy for egress queues.",
 						MarkdownDescription: "Queue management policy for egress queues.",
 					},
